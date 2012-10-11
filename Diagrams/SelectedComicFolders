@@ -1,0 +1,41 @@
+#!>>
+#!
+#!
+#! This flow shows how the user interacts with the OS to pick a folder to display the comics they want to they application to view.
+#! 
+#!
+#!
+#!<<
+
+User:Actor
+FolderSelection:xmal
+VM_FolderSelection:ViewModel
+ComicsView:xmal
+VM_ComicsView:ViewModel
+ComicReaper:Interface
+FileAccess:Interface
+DataAccess:Interface
+
+[c:SelectFolderPickerDisplay]
+User:FolderSelection.SelectFolder()
+FolderSelection:VM_FolderSelection.OnSelectedFolderClick()
+VM_FolderSelection:VM_FolderSelection.DisplayFolderSelector
+[/c]
+
+[c:FolderHasBeenSelected]
+VM_FolderSelection:VM_FolderSelection.FolderSelected
+VM_FolderSelection:ComicReaper.ReapFromFolder(StorageFolder)
+ComicReaper:List<StorageFolders>=FileAccess.GetFolders(StorageFolder)
+	[c:LoopThroughFolder]
+	ComicReaper:
+	[/c]
+[/c]
+
+
+
+
+
+
+
+
+

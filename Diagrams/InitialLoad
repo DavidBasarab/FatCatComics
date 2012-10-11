@@ -1,0 +1,9 @@
+User:Actor
+SplashPageComics:UI
+App:xaml
+MainModule:business
+
+User:SplashPageComics.StartApplication
+SplashPageComics:App.OnLaunched
+App:MainModule.Start(Version Enumeration)
+MainModule:MainModule.StartApplication By Loading Interfaces

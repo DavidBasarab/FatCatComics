@@ -1,0 +1,32 @@
+#!>>
+#!
+#!
+#! This will will be displayed if the user first visit to the application. Meaning they have not selected any folders.
+#!
+#!
+#!<<
+
+MainView:xmal
+VM_MainView:ViewModel
+FolderSelection:xmal
+VM_FolderSelection:ViewModel
+ComicsView:xmal
+VM_ComicsView:ViewModel
+SelectedComicsBusiness:Interface
+DataAccess:Interface
+
+MainView:VM_MainView.Display()
+[c:DisplayFolderSelection  if(numberOfSelectedFolders == 0]
+VM_MainView:true=VM_FolderSelection.DisplayFolderSelection()
+VM_FolderSelection:SelectedComicsBusiness.AnyFoldersSelected()
+SelectedComicsBusiness:0=DataAccess.CountOfSelectedFolders()
+VM_MainView:FolderSelection.Show()
+[/c]
+
+[c:DisplayComicsView  if(numberOfSelectedFolders > 0]
+VM_MainView:false=VM_FolderSelection.DisplayFolderSelection()
+VM_FolderSelection:SelectedComicsBusiness.AnyFoldersSelected()
+SelectedComicsBusiness:1=DataAccess.CountOfSelectedFolders()
+VM_MainView:ComicsView.Show()
+[/c]
+
