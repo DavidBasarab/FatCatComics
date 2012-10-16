@@ -17,7 +17,7 @@ namespace Spikes
             get { return "FatCatComic_SPIKE_456"; }
         }
 
-        public Table<SpikeDBObject> Comics { get; set; }
+        public IList<SpikeDBObject> Comics { get; set; }
 
         public async Task CreateDummyComic()
         {
