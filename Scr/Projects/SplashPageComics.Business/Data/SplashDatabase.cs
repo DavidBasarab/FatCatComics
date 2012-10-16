@@ -10,7 +10,7 @@ namespace SplashPageComics.Business.Data
     {
         private const string DatabaseName = "SplashPageComicsDatabase";
 
-        public static SplashDatabase Instance
+        public static DataStore Instance
         {
             get { return Nested.instance; }
         }

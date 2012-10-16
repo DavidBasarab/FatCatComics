@@ -16,7 +16,7 @@ namespace SplashPageComics.Business
                 container.RegisterType<ISelectedFolderDataAccess, SelectedFolderDataAccess>();
                 container.RegisterType<FileAccess, StorageFileAccess>();
                 container.RegisterType<SelectedComicsBusiness, SelectedComics>();
-                container.RegisterType<DataStore, SplashDatabase>();
+                container.RegisterInstance(SplashDatabase.Instance, new ExternallyControlledLifetimeManager());
 
                 Global.SetContainer(container);
             }
