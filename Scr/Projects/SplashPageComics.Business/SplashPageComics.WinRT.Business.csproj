@@ -112,6 +112,12 @@
     <Compile Include="Storage\FileAccess.cs" />
     <Compile Include="Storage\StorageFileAccess.cs" />
     <Compile Include="SupportsPropertyChanges.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\FolderSelection.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Messenger.cs" />
+    <Compile Include="ViewModels\MessengerService.cs" />
+    <Compile Include="ViewModels\ViewLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="GalaSoft.MvvmLight.Extras.Win8">
@@ -139,9 +145,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

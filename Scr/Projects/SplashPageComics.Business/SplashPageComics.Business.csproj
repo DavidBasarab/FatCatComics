@@ -78,6 +78,12 @@
     <Compile Include="Storage\FileAccess.cs" />
     <Compile Include="Storage\StorageFileAccess.cs" />
     <Compile Include="SupportsPropertyChanges.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\FolderSelection.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\Messenger.cs" />
+    <Compile Include="ViewModels\MessengerService.cs" />
+    <Compile Include="ViewModels\ViewLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
