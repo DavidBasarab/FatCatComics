@@ -2,13 +2,13 @@
 {
     public class ViewLocator
     {
-        public static FolderSelection FolderSelection { get; set; }
+        public static ImportComicViewModel ImportComicViewModel { get; set; }
         public static MainViewModel MainViewModel { get; set; }
 
         public ViewLocator()
         {
             MainViewModel = new MainViewModel();
-            FolderSelection = new FolderSelection();
+            ImportComicViewModel = new ImportComicViewModel();
         }
     }
 }

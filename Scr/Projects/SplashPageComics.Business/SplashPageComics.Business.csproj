@@ -54,6 +54,7 @@
     <Reference Include="Microsoft.Practices.Unity.Configuration">
       <HintPath>..\..\Solutions\FatCatComics\packages\Unity.3.0.1208-Preview\lib\Net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -65,8 +66,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTypes\Comic.cs" />
     <Compile Include="Data\DataStore.cs" />
     <Compile Include="Data\ISelectedFolderDataAccess.cs" />
     <Compile Include="DataTypes\SelectedFolder.cs" />
@@ -76,10 +79,10 @@
     <Compile Include="Logic\SelectedComicsBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\FileAccess.cs" />
-    <Compile Include="Storage\StorageFileAccess.cs" />
+    <Compile Include="Storage\Reaper.cs" />
     <Compile Include="SupportsPropertyChanges.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\FolderSelection.cs" />
+    <Compile Include="ViewModels\ImportComicViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Messenger.cs" />
     <Compile Include="ViewModels\MessengerService.cs" />

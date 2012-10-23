@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace SplashPageComics.Business
 {
-    public abstract class SupportsPropertyChanges
+    public abstract class SupportsPropertyChanges : INotifyPropertyChanged
     {
         /// <summary>
         ///     Property changed event

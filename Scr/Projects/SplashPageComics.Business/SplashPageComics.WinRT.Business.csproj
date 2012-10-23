@@ -99,6 +99,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DataTypes\Comic.cs" />
     <Compile Include="Data\DataStore.cs" />
     <Compile Include="Data\ISelectedFolderDataAccess.cs" />
     <Compile Include="Data\SelectedFolderDataAccess.cs" />
@@ -113,7 +114,7 @@
     <Compile Include="Storage\StorageFileAccess.cs" />
     <Compile Include="SupportsPropertyChanges.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\FolderSelection.cs" />
+    <Compile Include="ViewModels\ImportComicViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\Messenger.cs" />
     <Compile Include="ViewModels\MessengerService.cs" />
@@ -152,7 +153,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'UnitTesting|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\UnitTesting\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NETFX_CORE </DefineConstants>
     <NoStdLib>true</NoStdLib>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>

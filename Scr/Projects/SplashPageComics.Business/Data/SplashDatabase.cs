@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using SplashPageComics.Business.DataTypes;
 using WinRTDatabase;
@@ -12,21 +11,33 @@ namespace SplashPageComics.Business.Data
 
         public static DataStore Instance
         {
-            get { return Nested.instance; }
+            get { return Nested.SplashDatabase; }
+        }
+
+        private static class Nested
+        {
+            internal static readonly SplashDatabase SplashDatabase = new SplashDatabase();
+
+            static Nested()
+            {
+                SplashDatabase.Start();
+            }
         }
 
         private SplashDatabase() {}
 
+        public Database Database { get; set; }
+
         public IList<SelectedFolder> SelectedFolders { get; set; }
 
-        private Task CreateDatabase()
+        private async Task CreateDatabase()
         {
-            throw new NotImplementedException();
+            Database = await Database.CreateDatabaseAsync(DatabaseName);
         }
 
-        private Task LoadDatabase()
+        private async Task LoadDatabase()
         {
-            throw new NotImplementedException();
+            Database = await Database.OpenDatabaseAsync(DatabaseName, true);
         }
 
         private async void Start()
@@ -35,16 +46,17 @@ namespace SplashPageComics.Business.Data
 
             if (!exists) await CreateDatabase();
             else await LoadDatabase();
+
+            VerifyTables();
+
+            SelectedFolders = await Database.Table<SelectedFolder>();
+
+            await Database.SaveAsync();
         }
 
-        private class Nested
+        private void VerifyTables()
         {
-            internal static readonly SplashDatabase instance = new SplashDatabase();
-
-            static Nested()
-            {
-                instance.Start();
-            }
+            if (!Database.DoesTableExists(typeof(SelectedFolder))) Database.CreateTable<SelectedFolder>();
         }
     }
 }
