@@ -1,7 +1,9 @@
-﻿namespace SplashPageComics.Business.Data
+﻿using System.Threading.Tasks;
+
+namespace SplashPageComics.Business.Data
 {
     public interface ISelectedFolderDataAccess
     {
-        int NumberOfSelectedFolders();
+        Task<int> NumberOfSelectedFolders();
     }
 }

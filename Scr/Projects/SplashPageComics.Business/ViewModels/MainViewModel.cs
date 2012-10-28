@@ -1,5 +1,5 @@
-﻿using System;
-using SplashPageComics.Business.Logic;
+﻿using SplashPageComics.Business.Logic;
+using SplashPageComics.Business.Threading;
 
 namespace SplashPageComics.Business.ViewModels
 {
@@ -8,10 +8,10 @@ namespace SplashPageComics.Business.ViewModels
         private bool showSelectFolder;
 
         public MainViewModel()
-            : this(Global.Create<MessengerService>(), Global.Create<SelectedComicsBusiness>()) {}
+            : this(Global.Create<MessengerService>(), Global.Create<ThreadManagement>(), Global.Create<SelectedComicsBusiness>()) {}
 
-        public MainViewModel(MessengerService messengerService, SelectedComicsBusiness selectedComicsBusiness)
-            : base(messengerService)
+        public MainViewModel(MessengerService messengerService, ThreadManagement threadManagement, SelectedComicsBusiness selectedComicsBusiness)
+            : base(messengerService, threadManagement)
         {
             SelectedComicsBusiness = selectedComicsBusiness;
         }
@@ -24,9 +24,9 @@ namespace SplashPageComics.Business.ViewModels
             set { SetProperty(value, ref showSelectFolder); }
         }
 
-        public void Start()
+        public async void Start()
         {
-            ShowSelectFolder = SelectedComicsBusiness.IsAtLeastOneFolderSelected();
+            ShowSelectFolder = await SelectedComicsBusiness.IsAtLeastOneFolderSelected();
         }
     }
 }

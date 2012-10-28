@@ -1,27 +1,34 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using GalaSoft.MvvmLight;
+using SplashPageComics.Business.Threading;
 
 namespace SplashPageComics.Business.ViewModels
 {
     public abstract class BaseViewModel : ViewModelBase
     {
-        protected BaseViewModel(MessengerService messengerService)
+        protected BaseViewModel(MessengerService messengerService, ThreadManagement threadManagement)
         {
             MessengerService = messengerService;
+            ThreadManagement = threadManagement;
 
             RegisterForMessages();
 
             if (IsInDesignModeStatic) OnDesignTime();
+            else ThreadManagement.ExecuteInSeparateThread(RunStartUp);
         }
+
+        protected ThreadManagement ThreadManagement { get; set; }
 
         public MessengerService MessengerService { get; set; }
 
         public new event PropertyChangedEventHandler PropertyChanged;
 
-        public virtual void OnDesignTime() {}
+        protected virtual void OnDesignTime() {}
 
-        public virtual void RegisterForMessages() {}
+        protected virtual void RegisterForMessages() {}
+
+        protected virtual void RunStartUp() {}
 
         protected void OnPropertyChanged(string propertyName)
         {

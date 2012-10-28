@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using SplashPageComics.Business.Data;
 
 namespace SplashPageComics.Business.Logic
@@ -11,9 +12,9 @@ namespace SplashPageComics.Business.Logic
             SelectedFolderDataAccess = selectedFolderDataAccess;
         }
 
-        public bool IsAtLeastOneFolderSelected()
+        public async Task<bool> IsAtLeastOneFolderSelected()
         {
-            return SelectedFolderDataAccess.NumberOfSelectedFolders() > 0;
+            return await SelectedFolderDataAccess.NumberOfSelectedFolders() > 0;
         }
     }
 }

@@ -1,7 +1,9 @@
-﻿namespace SplashPageComics.Business.Logic
+﻿using System.Threading.Tasks;
+
+namespace SplashPageComics.Business.Logic
 {
     public interface SelectedComicsBusiness
     {
-        bool IsAtLeastOneFolderSelected();
+        Task<bool> IsAtLeastOneFolderSelected();
     }
 }

@@ -2,6 +2,7 @@
 using SplashPageComics.Business.Data;
 using SplashPageComics.Business.Logic;
 using SplashPageComics.Business.Storage;
+using SplashPageComics.Business.Threading;
 using SplashPageComics.Business.ViewModels;
 
 namespace SplashPageComics.Business
@@ -19,6 +20,7 @@ namespace SplashPageComics.Business
                 container.RegisterType<SelectedComicsBusiness, SelectedComics>();
                 container.RegisterInstance(SplashDatabase.Instance, new ExternallyControlledLifetimeManager());
                 container.RegisterType<MessengerService, Messenger>();
+                container.RegisterType<ThreadManagement, SimpleThreadManagement>();
 
                 Global.SetContainer(container);
 

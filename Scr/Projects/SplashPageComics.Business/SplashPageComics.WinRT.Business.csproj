@@ -109,10 +109,15 @@
     <Compile Include="Logic\SelectedComics.cs" />
     <Compile Include="Logic\SelectedComicsBusiness.cs" />
     <Compile Include="MainModule.cs" />
+    <Compile Include="Models\Comic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\FileAccess.cs" />
     <Compile Include="Storage\StorageFileAccess.cs" />
     <Compile Include="SupportsPropertyChanges.cs" />
+    <Compile Include="Threading\BaseCaller.cs" />
+    <Compile Include="Threading\FunctionCaller.cs" />
+    <Compile Include="Threading\SimpleThreadManagement.cs" />
+    <Compile Include="Threading\ThreadManagement.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ImportComicViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
