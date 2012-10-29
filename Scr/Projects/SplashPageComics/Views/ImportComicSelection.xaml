@@ -15,7 +15,8 @@
             <RowDefinition Height="AUTO" />
             <RowDefinition Height="AUTO" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Text="{Binding FolderMessage}" TextWrapping="Wrap" Margin="50" />
+        <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Text="{Binding FolderMessage, Mode=TwoWay}" TextWrapping="Wrap" Margin="50" />
         <Button Content="Let's Get Started" Grid.Row="1" HorizontalAlignment="Center" Command="{Binding SelectFolderCommand}" Margin="456,0,611,-39" Height="77" Grid.RowSpan="3" Width="299" FontSize="24" />
+        <ProgressRing />
     </Grid>
 </Page>

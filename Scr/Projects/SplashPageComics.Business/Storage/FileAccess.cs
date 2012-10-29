@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using SplashPageComics.Business.DataTypes;
+using SplashPageComics.Business.Models;
 
 namespace SplashPageComics.Business.Storage
 {
@@ -7,6 +7,6 @@ namespace SplashPageComics.Business.Storage
     {
         Task<string> PickFile();
 
-        Task<SelectedFolder> PickFolder();
+        Task<UserSelectedFolder> PickFolder();
     }
 }

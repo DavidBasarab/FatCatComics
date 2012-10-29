@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using SplashPageComics.Business.Logic;
+using SplashPageComics.Business.Models;
 using SplashPageComics.Business.Storage;
 using SplashPageComics.Business.Threading;
 
@@ -19,15 +20,6 @@ namespace SplashPageComics.Business.ViewModels
         {
             SelectedComicsBusiness = selectedComicsBusiness;
             FileAccess = fileAccess;
-        }
-
-        protected override void RunStartUp()
-        {
-            if (!SelectedComicsBusiness.IsAtLeastOneFolderSelected().Result)
-            {
-                FolderMessage =
-                    "Hey welcome to SplashPage Comics.  First we need to where to find your comics.  It is best to have them all in one folder.  You can have them in many folders you just have to do more work by importing each folder.";
-            }
         }
 
         private FileAccess FileAccess { get; set; }
@@ -55,16 +47,34 @@ namespace SplashPageComics.Business.ViewModels
             SelectFileCommand = new RelayCommand(OnFileSelected);
         }
 
+        protected override void RunStartUp()
+        {
+            if (!SelectedComicsBusiness.IsAtLeastOneFolderSelected().Result)
+            {
+                FolderMessage =
+                    "Hey welcome to SplashPage Comics.  First we need to where to find your comics.  It is best to have them all in one folder.  You can have them in many folders you just have to do more work by importing each folder.";
+            }
+        }
+
         private async void OnFileSelected()
         {
             await FileAccess.PickFile();
-
-            FolderMessage = "Great you selected a folder.  Now I have to do some work to import them.  Please hang on a minute, I promise not to take too long.";
         }
 
         private async void OnFolderSelected()
         {
-            await FileAccess.PickFolder();
+            var selectedFolder = await FileAccess.PickFolder();
+
+            FolderMessage = "*****Great you selected a folder.  Now I have to do some work to import them.  Please hang on a minute, I promise not to take too long.***";
+
+            ThreadManagement.ExecuteInSeparateThread(ReapComics, selectedFolder);
+        }
+
+        private void ReapComics(UserSelectedFolder selectedFolder)
+        {
+            SelectedComicsBusiness.ReapComics(selectedFolder);
+
+            FolderMessage = "Awesome I got all you comics.";
         }
     }
 }

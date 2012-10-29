@@ -21,6 +21,7 @@ namespace SplashPageComics.Business
                 container.RegisterInstance(SplashDatabase.Instance, new ExternallyControlledLifetimeManager());
                 container.RegisterType<MessengerService, Messenger>();
                 container.RegisterType<ThreadManagement, SimpleThreadManagement>();
+                container.RegisterType<ILoadComics, ComicLoader>();
 
                 Global.SetContainer(container);
 

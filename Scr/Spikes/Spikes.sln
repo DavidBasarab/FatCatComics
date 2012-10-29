@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spikes", "Spikes\Spikes.csproj", "{BD25E127-361E-4501-984E-3D12641D1E2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleGridApp", "SampleGridApp\SampleGridApp.csproj", "{8552E1CA-5859-4857-A4A4-4D2183D83015}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,30 @@ Global
 		{BD25E127-361E-4501-984E-3D12641D1E2E}.Release|x86.ActiveCfg = Release|x86
 		{BD25E127-361E-4501-984E-3D12641D1E2E}.Release|x86.Build.0 = Release|x86
 		{BD25E127-361E-4501-984E-3D12641D1E2E}.Release|x86.Deploy.0 = Release|x86
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|ARM.ActiveCfg = Debug|ARM
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|ARM.Build.0 = Debug|ARM
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|ARM.Deploy.0 = Debug|ARM
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|x64.ActiveCfg = Debug|x64
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|x64.Build.0 = Debug|x64
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|x64.Deploy.0 = Debug|x64
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|x86.ActiveCfg = Debug|x86
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|x86.Build.0 = Debug|x86
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Debug|x86.Deploy.0 = Debug|x86
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|ARM.ActiveCfg = Release|ARM
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|ARM.Build.0 = Release|ARM
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|ARM.Deploy.0 = Release|ARM
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|x64.ActiveCfg = Release|x64
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|x64.Build.0 = Release|x64
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|x64.Deploy.0 = Release|x64
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|x86.ActiveCfg = Release|x86
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|x86.Build.0 = Release|x86
+		{8552E1CA-5859-4857-A4A4-4D2183D83015}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,18 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading;
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using SplashPageComics.Business.Threading;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
 
 namespace SplashPageComics.Business.ViewModels
 {
     public abstract class BaseViewModel : ViewModelBase
     {
+        private bool isProcessing;
+
         protected BaseViewModel(MessengerService messengerService, ThreadManagement threadManagement)
         {
             MessengerService = messengerService;
@@ -18,9 +24,20 @@ namespace SplashPageComics.Business.ViewModels
             else ThreadManagement.ExecuteInSeparateThread(RunStartUp);
         }
 
+        protected NavigationService NavigationService
+        {
+            get { return NavigationService.Service; }
+        }
+
         protected ThreadManagement ThreadManagement { get; set; }
 
         public MessengerService MessengerService { get; set; }
+
+        public bool IsProcessing
+        {
+            get { return isProcessing; }
+            set { SetProperty(value, ref isProcessing); }
+        }
 
         public new event PropertyChangedEventHandler PropertyChanged;
 
@@ -37,20 +54,25 @@ namespace SplashPageComics.Business.ViewModels
 
         protected void SetProperty<T>(T value, ref T backingField, [CallerMemberName] string propertyName = "")
         {
+            var dispatcher = CoreApplication.MainView.CoreWindow.Dispatcher;
+
             if (backingField == null && value != null)
             {
                 backingField = value;
-                OnPropertyChanged(propertyName);
+
+                dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => RaisePropertyChanged(propertyName));
             }
             else if (backingField != null && value == null)
             {
                 backingField = value;
-                OnPropertyChanged(propertyName);
+
+                dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => RaisePropertyChanged(propertyName));
             }
             else if (backingField != null && value != null && !backingField.Equals(value))
             {
                 backingField = value;
-                OnPropertyChanged(propertyName);
+
+                dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => RaisePropertyChanged(propertyName));
             }
         }
     }

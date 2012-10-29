@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using SplashPageComics.Business.DataTypes;
+using SplashPageComics.Business.Models;
 using Windows.Storage.Pickers;
 
 namespace SplashPageComics.Business.Storage
 {
     internal class StorageFileAccess : FileAccess
     {
-        public async Task<SelectedFolder> PickFolder()
+        public async Task<UserSelectedFolder> PickFolder()
         {
             var picker = new FolderPicker
             {
@@ -20,10 +21,11 @@ namespace SplashPageComics.Business.Storage
 
             var folder = await picker.PickSingleFolderAsync();
 
-            return new SelectedFolder
+            return new UserSelectedFolder
             {
                 FolderLocation = folder.Name,
-                DateAdded = DateTime.UtcNow
+                DateAdded = DateTime.UtcNow,
+                StorageFolder = folder
             };
         }
 
